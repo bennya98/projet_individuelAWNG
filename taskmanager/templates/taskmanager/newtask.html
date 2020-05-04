@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="w3-bar w3-light-grey">
+            <p class="w3-bar-item"><a href="{% url 'projects' %}">Projects</a>/
+                <a href="{% url 'tasks' id=project.id %}">Tasks</a></p>
+    </div>
+
+    <h2>New Task</h2>
+
+    <form action="{% url "newtask" id=project.id %}" method="post" class="w3-container">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+    </form>
+
+{% endblock content %}

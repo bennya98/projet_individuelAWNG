@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="w3-bar w3-light-grey">
+            <p class="w3-bar-item"><a href="{% url 'projects' %}">Projects</a></p>
+            <p class="w3-bar-item w3-right"><a href="{% url 'newproject'%}">Add new comment</a></p>
+    </div>
+
+
+    <form action="" method="POST" class="w3-container">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Delete Task"/>
+    </form>
+
+
+{% endblock content %}

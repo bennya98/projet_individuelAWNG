@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="w3-bar w3-light-grey">
+            <p class="w3-bar-item"><a href="{% url 'projects' %}">Projects</a>/
+                <a href="{% url 'tasks' id=project.id %}">Tasks</a>/
+                <a href="{% url 'task' task_id=task.id %}">{{ task.Name }}</a></p>
+            <p class="w3-bar-item w3-right"><a href="{% url 'addcomment' task_id=task.id %}">Add new comment</a></p>
+    </div>
+
+    <div class="w3-container">
+    <h1>{{ project.Name }}</h1>
+    <h2>{{ task.Name }}</h2>
+    <h4>{{ task.Description }}</h4>
+    <p><b>Assigned member:</b> {{ task.assigned }}</p>
+    <p><b>Start date:</b> {{ task.start_date }}</p>
+    <p><b>End date:</b> {{ task.end_date }}</p>
+    <p><b>Status:</b> {{ task.status }}</p>
+    </div>
+
+    <div class=w3-container">
+    <h4>History</h4>
+    <table>
+    {% for journal in journals %}
+            <div class="journal">
+                <tr>
+                    <td><b>{{ journal.author }}</b></td>
+                    <td><i>{{ journal.date }}</i></td>
+                    <td>{{ journal.entry }}</td>
+                </tr>
+            </div>
+    {% endfor %}
+    </table>
+    </div>
+{% endblock content %}

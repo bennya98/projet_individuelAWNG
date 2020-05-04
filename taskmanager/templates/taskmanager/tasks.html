@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="w3-bar w3-light-grey">
+            <p class="w3-bar-item"><a href="{% url 'projects' %}">Projects</a>/
+                <a href="{% url 'tasks' id=project.id %}">Tasks</a></p>
+            <p class="w3-bar-item w3-right"><a href="{% url 'newtask' id=project.id %}">Add new task</a></p>
+    </div>
+
+    <p>The tasks in {{ project.Name }} are:</p>
+
+    <table class="w3-table w3-bordered">
+        <tr>
+            <th>Task</th>
+            <th>Member</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for task in tasks %}
+            <div class="task">
+                <tr>
+                    <td><a href="{% url 'task' task_id=task.id %}" >{{ task.Name }}</a></td>
+                    <td>{{ task.assigned }}</td>
+                    <td>{{ task.start_date }}</td>
+                    <td>{{ task.end_date }}</td>
+                    <td><a href = "{% url 'modifytask' task_id=task.id %}">Modify</a></td>
+                    <td><a href = "{% url 'deletetask' task_id=task.id %}">Delete</a></td>
+                </tr>
+            </div>
+        {% endfor %}
+
+    </table>
+
+{% endblock content %}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Task Manager</title>
+</head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+</style>
+<body class="w3-content">
+    <header class="w3-container w3-xlarge w3-sand">
+        <h1 class="w3-left">Task Manager</h1>
+        <p class = "w3-right">Welcome {{ user }}
+            <a href = "{%  url 'logout' %}">
+                Log out
+            </a>
+        </p>
+    </header>
+
+    {% block content %}{% endblock content %}
+
+</body>
+</html>
