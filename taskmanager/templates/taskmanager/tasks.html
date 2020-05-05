@@ -3,9 +3,9 @@
 {% block content %}
 
     <div class="w3-bar w3-light-grey">
-            <p class="w3-bar-item"><a href="{% url 'projects' %}">Projects</a>/
-                <a href="{% url 'tasks' id=project.id %}">Tasks</a></p>
-            <p class="w3-bar-item w3-right"><a href="{% url 'newtask' id=project.id %}">Add new task</a></p>
+        <p class="w3-bar-item"><a href="{% url 'projects' %}">Projects</a>/
+            <a href="{% url 'tasks' id=project.id %}">Tasks</a></p>
+        <p class="w3-bar-item w3-right"><a href="{% url 'newtask' id=project.id %}">Add new task</a></p>
     </div>
 
     <p>The tasks in {{ project.Name }} are:</p>

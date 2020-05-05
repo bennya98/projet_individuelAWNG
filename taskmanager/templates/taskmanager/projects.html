@@ -19,6 +19,7 @@
                     <td><a href="{% url 'tasks' id=project.id %}" >{{ project.Name }}</a></td>
                     <td>
                         <p>
+                        <!--This for loop permits the listing of all the members of a project -->
                         {% for member in project.Members.all %}
                             {{ member }}
                         {% endfor %}

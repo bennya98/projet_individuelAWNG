@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+    <!--Navigation bar allows user to navigate to the projects page and the list of tasks in a project as well as
+    add a new comment-->
     <div class="w3-bar w3-light-grey">
             <p class="w3-bar-item"><a href="{% url 'projects' %}">Projects</a>/
                 <a href="{% url 'tasks' id=project.id %}">Tasks</a>/
